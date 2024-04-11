@@ -1,4 +1,4 @@
-package cine;
+package cineCG;
 
 import static org.junit.jupiter.api.Assertions.*;
 
