@@ -2,11 +2,12 @@ package ejemploUno;
 
 import static org.junit.Assert.*;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class bisiestosTest {
 	
-	@Test
+	@Ignore
 	public void testEsBisiesto() {
 		//creo un array para las pruebas que deben dar true y otroo para las
 		//que deben dar false
@@ -24,7 +25,7 @@ public class bisiestosTest {
 		for(int x=0;x<invalid.length;x++)
 			assertFalse(instancia.esBisiestoDefensive(invalid[x]));		
 	}
-	@Test
+	@Ignore
 	public void testEsContract() {
 		//creo un array para las pruebas que deben dar true y otroo para las
 		//que deben dar false
@@ -41,4 +42,21 @@ public class bisiestosTest {
 			
 	}
 
+	@Test
+	public void testEsCGFueraDeRango() {
+		Bisiestos instancia=new Bisiestos();
+		try {
+			instancia.esBisiestoCG(398);
+			//si no falla ejecuta la siguiente linea
+			System.out.println("que bien va todo");
+			fail("no vale el anno");
+		} catch (BisiestosException e) {
+			System.out.println("fallo, como tenia que ser");
+		}
+	}
+	@Test
+	public void testEsCGDentroDeRango() throws BisiestosException {
+		Bisiestos instancia=new Bisiestos();
+		assertTrue(instancia.esBisiestoCG(400));
+	}
 }

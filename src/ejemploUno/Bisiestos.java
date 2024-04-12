@@ -20,6 +20,22 @@ public class Bisiestos {
 		}
 		else return true;
 	}
+	public boolean esBisiestoCG(int anno) throws BisiestosException{
+		//en este clausa compruebo lo que no debe valer
+		if(anno<=399||anno>=10000) throw new BisiestosException();
+		//codigo
+		if(!(anno%400==0)){
+			if (!(anno%100==0)){
+				if(anno%4==0)
+					return true;
+				else 
+					return false;
+			}
+			else return false;
+		}
+		else return true;
+	}
+	
 	public boolean esBisiestoContract(int anno){
 		//programacion por contrato
 		//compruebo los valores que deben valer
